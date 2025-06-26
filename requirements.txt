@@ -4,3 +4,4 @@ qiskit-aer
 matplotlib
 pillow
 pylatexenc
+ipython
