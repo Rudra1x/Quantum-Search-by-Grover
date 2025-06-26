@@ -2,3 +2,4 @@ streamlit
 qiskit
 qiskit-aer
 matplotlib
+pillow
