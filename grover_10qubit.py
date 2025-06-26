@@ -92,10 +92,14 @@ if search:
     st.info(f" Target Binary Index: `{target_bin}`")
 
     # Show Circuit Diagram (neatly folded)
-    st.subheader(" Quantum Circuit Diagram")
-    # Safer draw method for Streamlit Cloud
-    svg = qc.draw(output="mpl", fold=150)
-    st.components.v1.html(svg, height=600, scrolling=True)
+#  Display Circuit Diagram (Safe SVG rendering)
+    from IPython.display import SVG
+    st.subheader("📐 Quantum Circuit Diagram")
+
+    svg_obj = qc.draw(output="svg", fold=150)
+    svg_str = str(svg_obj.data)  # Extract raw SVG markup
+    st.components.v1.html(svg_str, height=600, scrolling=True)
+
 
 
     # Download Buttons
