@@ -93,14 +93,16 @@ if search:
 
     # Show Circuit Diagram (neatly folded)
     st.subheader(" Quantum Circuit Diagram")
-    fig3 = qc.draw(output='mpl', fold=150)
-    st.pyplot(fig3.figure)
+    # Safer draw method for Streamlit Cloud
+    svg = qc.draw(output="svg", fold=150)
+    st.image(svg, use_column_width=True)
+
 
     # Download Buttons
     buf2 = io.BytesIO()
     fig2.savefig(buf2, format="png")
     st.download_button(" Download Top 10 Histogram", buf2.getvalue(), file_name="top10_histogram.png", mime="image/png")
 
-    buf3 = io.BytesIO()
-    fig3.figure.savefig(buf3, format="png")
-    st.download_button(" Download Circuit Diagram", buf3.getvalue(), file_name="circuit_diagram.png", mime="image/png")
+    #buf3 = io.BytesIO()
+    #fig3.figure.savefig(buf3, format="png")
+    #st.download_button(" Download Circuit Diagram", buf3.getvalue(), file_name="circuit_diagram.png", mime="image/png")
