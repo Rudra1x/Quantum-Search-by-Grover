@@ -94,7 +94,7 @@ if search:
     # Show Circuit Diagram (neatly folded)
     st.subheader(" Quantum Circuit Diagram")
     # Safer draw method for Streamlit Cloud
-    svg = qc.draw(output="svg", fold=150)
+    svg = qc.draw(output="mpl", fold=150)
     st.image(svg, use_column_width=True)
 
 
