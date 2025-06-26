@@ -96,9 +96,8 @@ if search:
     from IPython.display import SVG
     st.subheader("📐 Quantum Circuit Diagram")
 
-    svg_obj = qc.draw(output="svg", fold=150)
-    svg_str = str(svg_obj.data)  # Extract raw SVG markup
-    st.components.v1.html(svg_str, height=600, scrolling=True)
+    circuit_text = qc.draw(output="text", fold=150)
+    st.code(circuit_text, language='text')
 
 
 
