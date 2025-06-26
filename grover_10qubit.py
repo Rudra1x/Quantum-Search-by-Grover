@@ -95,7 +95,7 @@ if search:
     st.subheader(" Quantum Circuit Diagram")
     # Safer draw method for Streamlit Cloud
     svg = qc.draw(output="mpl", fold=150)
-    st.image(svg, use_column_width=True)
+    st.components.v1.html(svg, height=600, scrolling=True)
 
 
     # Download Buttons
